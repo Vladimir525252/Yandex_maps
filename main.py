@@ -48,7 +48,7 @@ class MainWindow(QMainWindow):
         elif key == Qt.Key.Key_Down:
             if self.map_ll[1] - self.press_delta > -90:
                 self.map_ll[1] -= self.press_delta
-        elif key == Qt.Key.Key_T:
+        elif key == Qt.Key.Key_T and event.modifiers() == Qt.KeyboardModifier.ControlModifier :
             if self.theme == "dark":
                 self.theme = "light"
             else:
