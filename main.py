@@ -22,6 +22,7 @@ class MainWindow(QMainWindow):
         self.map_zoom = 10
         self.map_ll = [37.977751, 55.757718]
         self.map_key = ''
+        self.theme = "dark"
 
         self.refresh_map()
 
@@ -47,6 +48,11 @@ class MainWindow(QMainWindow):
         elif key == Qt.Key.Key_Down:
             if self.map_ll[1] - self.press_delta > -90:
                 self.map_ll[1] -= self.press_delta
+        elif key == Qt.Key.Key_T:
+            if self.theme == "dark":
+                self.theme = "light"
+            else:
+                self.theme = "dark"
         else:
             return
 
@@ -57,6 +63,7 @@ class MainWindow(QMainWindow):
             "ll": ','.join(map(str, self.map_ll)),
             'z': self.map_zoom,
             'apikey': API_KEY_STATIC,
+            "theme": self.theme
         }
         session = requests.Session()
         retry = Retry(total=10, connect=5, backoff_factor=0.5)
