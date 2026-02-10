@@ -10,6 +10,7 @@ from urllib3 import Retry
 from geocoder import get_coordinates
 API_KEY_STATIC = 'f3a0fe3a-b07e-4840-a1da-06f18b2ddf13'
 
+""" КЛАВИШИ ДЛЯ ТЕМЫ - CTRL + T; ДЛЯ ПОИСКА CTRL + S """
 
 class MainWindow(QMainWindow):
     g_map: QLabel
